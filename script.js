@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(currentSlide);
     startAutoSlide();
     
-    // Initialize page
-    showPage(currentPage);
+    const contentWrapper = document.querySelector('.content-wrapper');
+    const videoBackground = document.querySelector('.video-background');
     
     // Add click event to hero slide indicators
     const indicators = document.querySelectorAll('.indicator');
@@ -52,77 +52,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Scroll event listener to update page counter and video background
+    let scrollTimeout;
+    contentWrapper.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            updatePageFromScroll();
+        }, 100);
+    });
+    
     // Add keyboard navigation
     document.addEventListener('keydown', (e) => {
-        const heroSection = document.querySelector('.hero-section');
-        const projectsSection = document.querySelector('.projects-section');
-        
-        if (heroSection && !heroSection.classList.contains('hidden')) {
-            // Hero page navigation
-            if (e.key === 'ArrowLeft') {
+        if (e.key === 'ArrowLeft') {
+            if (currentPage === 1) {
                 previousSlide();
-            } else if (e.key === 'ArrowRight') {
-                nextSlide();
-            }
-        } else if (projectsSection && projectsSection.classList.contains('active')) {
-            // Projects page navigation
-            if (e.key === 'ArrowLeft') {
+            } else if (currentPage === 2) {
                 previousProject();
-            } else if (e.key === 'ArrowRight') {
+            }
+        } else if (e.key === 'ArrowRight') {
+            if (currentPage === 1) {
+                nextSlide();
+            } else if (currentPage === 2) {
                 nextProject();
             }
-        }
-        
-        // Page navigation
-        if (e.key === 'ArrowDown') {
+        } else if (e.key === 'ArrowDown') {
             e.preventDefault();
-            nextPage();
+            scrollToPage(currentPage + 1);
         } else if (e.key === 'ArrowUp') {
             e.preventDefault();
-            previousPage();
+            scrollToPage(currentPage - 1);
         }
     });
 });
 
-// Page Navigation Functions
-function showPage(pageNum) {
-    const heroSection = document.querySelector('.hero-section');
-    const projectsSection = document.querySelector('.projects-section');
+// Update page based on scroll position
+function updatePageFromScroll() {
+    const contentWrapper = document.querySelector('.content-wrapper');
+    const sections = document.querySelectorAll('.page-section');
     const videoBackground = document.querySelector('.video-background');
     const pageCounter = document.querySelector('.page-counter');
     
-    // Update page counter
-    pageCounter.textContent = `${pageNum} / ${totalPages}`;
-    currentPage = pageNum;
+    let closestSection = 1;
+    let minDistance = Infinity;
     
-    // Hide all sections
-    heroSection.classList.add('hidden');
-    projectsSection.classList.remove('active');
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top);
+        
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = index + 1;
+        }
+    });
     
-    // Show appropriate section
-    if (pageNum === 1) {
-        heroSection.classList.remove('hidden');
-        videoBackground.classList.remove('active');
-    } else if (pageNum === 2) {
-        projectsSection.classList.add('active');
-        videoBackground.classList.add('active');
+    if (closestSection !== currentPage) {
+        currentPage = closestSection;
+        pageCounter.textContent = `${currentPage} / ${totalPages}`;
+        updateNavbar();
+        
+        // Toggle video background
+        if (currentPage > 1) {
+            videoBackground.classList.add('active');
+        } else {
+            videoBackground.classList.remove('active');
+        }
     }
-    // Add more pages here (3 = experiences, 4 = contact)
 }
 
-function nextPage() {
-    if (currentPage < totalPages) {
-        currentPage++;
-        showPage(currentPage);
-        updateNavbar();
-    }
-}
-
-function previousPage() {
-    if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-        updateNavbar();
+// Scroll to specific page
+function scrollToPage(pageNum) {
+    if (pageNum < 1 || pageNum > totalPages) return;
+    
+    const sections = document.querySelectorAll('.page-section');
+    const targetSection = sections[pageNum - 1];
+    
+    if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
@@ -231,15 +236,8 @@ navLinks.forEach((link, index) => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         
-        // Remove active class from all links
-        navLinks.forEach(l => l.classList.remove('active'));
-        
-        // Add active class to clicked link
-        link.classList.add('active');
-        
-        // Navigate to corresponding page
-        currentPage = index + 1;
-        showPage(currentPage);
+        // Scroll to corresponding page
+        scrollToPage(index + 1);
     });
 });
 
@@ -263,28 +261,35 @@ if (slider) {
             isScrolling = false;
         }, 500);
     });
-}
-
-// Touch/swipe support for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-if (slider) {
+    
+    // Touch/swipe support for mobile (slider only, not page navigation)
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
     slider.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
     });
     
     slider.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
+        touchEndY = e.changedTouches[0].screenY;
+        handleSliderSwipe();
     });
-}
-
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        nextSlide();
-    }
-    if (touchEndX > touchStartX + 50) {
-        previousSlide();
+    
+    function handleSliderSwipe() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = Math.abs(touchEndY - touchStartY);
+        
+        // Only trigger if horizontal swipe is more significant than vertical
+        if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > deltaY) {
+            if (deltaX < 0) {
+                nextSlide();
+            } else {
+                previousSlide();
+            }
+        }
     }
 }
