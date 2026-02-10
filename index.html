@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Video Background for other pages -->
+    <video class="video-background" autoplay muted loop>
+        <source src="vid/background.mp4" type="video/mp4">
+    </video>
+    
     <div class="container">
+        <!-- Page Counter -->
+        <div class="page-counter">1 / 4</div>
+        
         <!-- Navigation -->
         <nav class="navbar">
             <ul>
@@ -22,7 +30,7 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="hero-section">
+        <main class="hero-section" id="about" data-page="1">
             <div class="dots-background"></div>
             
             <!-- Slider -->
@@ -77,6 +85,115 @@
                 </div>
             </div>
         </main>
+
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects" data-page="2">
+            <div class="section-title">Projects</div>
+            
+            <div class="projects-content">
+                <!-- Project Slider -->
+                <div class="project-slider">
+                    <div class="project-slide-wrapper">
+                        <div class="project-slide active" data-project="1">
+                            <div class="project-preview">
+                                <div class="project-preview-placeholder">Slider</div>
+                            </div>
+                            <h3 class="project-title">[UAV System Eng] Post Flight UAV Diagnostic Analyzer</h3>
+                            <div class="project-indicators">
+                                <span class="project-dot active"></span>
+                                <span class="project-dot"></span>
+                                <span class="project-dot"></span>
+                                <span class="project-dot"></span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Decision Tree</span>
+                                <span class="tag">Data Processing</span>
+                                <span class="tag">Flight Log Analysis</span>
+                            </div>
+                        </div>
+
+                        <div class="project-slide" data-project="2">
+                            <div class="project-preview">
+                                <div class="project-preview-placeholder">Project 2</div>
+                            </div>
+                            <h3 class="project-title">[Frontend] Hollow Knight Fanmade Web</h3>
+                            <div class="project-indicators">
+                                <span class="project-dot"></span>
+                                <span class="project-dot active"></span>
+                                <span class="project-dot"></span>
+                                <span class="project-dot"></span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+
+                        <div class="project-slide" data-project="3">
+                            <div class="project-preview">
+                                <div class="project-preview-placeholder">Project 3</div>
+                            </div>
+                            <h3 class="project-title">[UI/UX] Roomify : System Informasi Kos Berbasis Web</h3>
+                            <div class="project-indicators">
+                                <span class="project-dot"></span>
+                                <span class="project-dot"></span>
+                                <span class="project-dot active"></span>
+                                <span class="project-dot"></span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Figma</span>
+                                <span class="tag">UI Design</span>
+                                <span class="tag">User Research</span>
+                            </div>
+                        </div>
+
+                        <div class="project-slide" data-project="4">
+                            <div class="project-preview">
+                                <div class="project-preview-placeholder">Project 4</div>
+                            </div>
+                            <h3 class="project-title">[Game Dev] Little Cat Time Adventure</h3>
+                            <div class="project-indicators">
+                                <span class="project-dot"></span>
+                                <span class="project-dot"></span>
+                                <span class="project-dot"></span>
+                                <span class="project-dot active"></span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">C#</span>
+                                <span class="tag">Game Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project List -->
+                <div class="project-list">
+                    <div class="project-item" data-project="1">
+                        <span class="project-bar"></span>
+                        <span class="project-name">[UAV System Eng] Post Flight UAV Diagnostic Analyzer</span>
+                    </div>
+                    <div class="project-item" data-project="2">
+                        <span class="project-name">[Frontend] Hollow Knight Fanmade Web</span>
+                    </div>
+                    <div class="project-item" data-project="3">
+                        <span class="project-name">[UI/UX] Roomify : System Informasi Kos Berbasis Web</span>
+                    </div>
+                    <div class="project-item" data-project="4">
+                        <span class="project-name">[Frontend] Web Undangan Pernikahan</span>
+                    </div>
+                    <div class="project-item active" data-project="1">
+                        <span class="project-bar"></span>
+                        <span class="project-name">[UAV System Eng] Post Flight UAV Diagnostic Analyzer</span>
+                    </div>
+                    <div class="project-item" data-project="5">
+                        <span class="project-name">[Game Dev] Little Cat Time Adventure</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="script.js"></script>

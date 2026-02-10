@@ -23,6 +23,34 @@ body::before {
     z-index: -1;
 }
 
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.video-background.active {
+    opacity: 1;
+}
+
+/* Page Counter */
+.page-counter {
+    position: fixed;
+    top: 40px;
+    right: 100px;
+    font-family: 'Abel', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    z-index: 100;
+}
+
 .container {
     max-width: 1920px;
     margin: 0 auto;
@@ -303,5 +331,237 @@ body::before {
     
     .slide p {
         font-size: 18px;
+    }
+}
+
+/* Projects Section */
+.projects-section {
+    display: none;
+    min-height: 100vh;
+    padding: 100px;
+    position: relative;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.projects-section.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 80px;
+    margin-top: -20px;
+}
+
+.projects-content {
+    display: flex;
+    gap: 100px;
+    width: 100%;
+    max-width: 1400px;
+    align-items: flex-start;
+}
+
+/* Project Slider */
+.project-slider {
+    flex: 1;
+    max-width: 500px;
+}
+
+.project-slide-wrapper {
+    position: relative;
+}
+
+.project-slide {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.project-slide.active {
+    display: block;
+}
+
+.project-preview {
+    width: 100%;
+    height: 300px;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-preview-placeholder {
+    font-family: 'Abel', sans-serif;
+    font-size: 32px;
+    color: #666;
+}
+
+.project-title {
+    font-family: 'Abel', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.project-indicators {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.project-dot {
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-dot.active {
+    background: #FF3333;
+}
+
+.project-dot:hover {
+    background: #666;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tag {
+    font-family: 'Abel', sans-serif;
+    font-size: 16px;
+    color: #FF3333;
+    border: 1px solid #FF3333;
+    border-radius: 20px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tag:hover {
+    background: #FF3333;
+    color: #ffffff;
+}
+
+/* Project List */
+.project-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 500px;
+}
+
+.project-item {
+    font-family: 'Abel', sans-serif;
+    font-size: 18px;
+    color: #999;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.project-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.project-item.active {
+    background: rgba(255, 51, 51, 0.1);
+    color: #ffffff;
+    border-left: 4px solid #FF3333;
+}
+
+.project-bar {
+    display: none;
+    width: 4px;
+    height: 100%;
+    background: #FF3333;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.project-item.active .project-bar {
+    display: block;
+}
+
+.project-name {
+    flex: 1;
+}
+
+/* Hide hero section when projects is active */
+.hero-section {
+    display: flex;
+}
+
+.hero-section.hidden {
+    display: none;
+}
+
+/* Responsive styles for projects */
+@media (max-width: 1200px) {
+    .projects-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-slider,
+    .project-list {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 50px 30px;
+    }
+    
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+    
+    .project-preview {
+        height: 200px;
+    }
+    
+    .page-counter {
+        right: 30px;
+        top: 30px;
     }
 }
