@@ -389,34 +389,12 @@ body::before {
     align-items: center;
 }
 
-.projects-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: -1;
-}
-
 /* Experiences Section */
 .experiences-section {
     padding: 100px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.experiences-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: -1;
 }
 
 .experiences-content {
@@ -429,17 +407,6 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: -1;
 }
 
 .contact-content {
@@ -648,15 +615,16 @@ body::before {
     flex-direction: column;
     gap: 10px;
     max-width: 500px;
+    margin-top: 50px;
 }
 
 .project-item {
     font-family: 'Abel', sans-serif;
     font-size: 18px;
-    color: #999;
+    color: #ffffff;
     padding: 15px 20px;
     padding-left: 45px;
-    background: rgba(30, 30, 30, 0.8);
+    background: rgba(57, 57, 57, 0.8);
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -667,7 +635,7 @@ body::before {
 }
 
 .project-item:nth-child(even) {
-    background: rgba(40, 40, 40, 0.8);
+    background: rgba(22, 22, 22, 0.8);
 }
 
 .project-item::before {
@@ -683,7 +651,6 @@ body::before {
 }
 
 .project-item:hover {
-    background: rgba(45, 45, 45, 0.9);
     color: #ffffff;
 }
 
