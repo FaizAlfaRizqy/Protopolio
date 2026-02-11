@@ -11,6 +11,7 @@ let autoSlideInterval;
 let currentProject = 1;
 const totalProjects = 4;
 let currentProjectImages = {}; // Track current image index for each project
+let projectImageIntervals = {}; // Auto-slide intervals for project images
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Show first project by default
     showProject(1);
+    
+    // Start auto-slide for project 1
+    startProjectImageAutoSlide(1);
     
     const contentWrapper = document.querySelector('.content-wrapper');
     const videoBackground = document.querySelector('.video-background');
@@ -187,6 +191,9 @@ function showProject(n) {
     const projectSlides = document.querySelectorAll('.project-slide');
     const projectItems = document.querySelectorAll('.project-item');
     
+    // Stop auto-slide for previous project
+    stopProjectImageAutoSlide(currentProject);
+    
     // Wrap around
     if (n > totalProjects) {
         currentProject = 1;
@@ -213,6 +220,33 @@ function showProject(n) {
             item.classList.add('active');
         }
     });
+    
+    // Start auto-slide for new project
+    startProjectImageAutoSlide(currentProject);
+}
+
+// Auto-slide functions for project images
+function startProjectImageAutoSlide(projectNum) {
+    // Clear any existing interval
+    stopProjectImageAutoSlide(projectNum);
+    
+    // Start new interval
+    projectImageIntervals[projectNum] = setInterval(() => {
+        const projectSlide = document.querySelector(`.project-slide[data-project="${projectNum}"]`);
+        if (!projectSlide || !projectSlide.classList.contains('active')) return;
+        
+        const images = projectSlide.querySelectorAll('.project-image');
+        let currentIndex = currentProjectImages[projectNum];
+        currentIndex = (currentIndex + 1) % images.length;
+        showProjectImage(projectNum, currentIndex);
+    }, 4000); // Change every 4 seconds
+}
+
+function stopProjectImageAutoSlide(projectNum) {
+    if (projectImageIntervals[projectNum]) {
+        clearInterval(projectImageIntervals[projectNum]);
+        delete projectImageIntervals[projectNum];
+    }
 }
 
 // Project Image Navigation Functions
@@ -225,6 +259,11 @@ function showProjectImage(projectNum, imageIndex) {
     
     // Update current image index
     currentProjectImages[projectNum] = imageIndex;
+    
+    // Restart auto-slide timer
+    if (projectSlide.classList.contains('active')) {
+        startProjectImageAutoSlide(projectNum);
+    }
     
     // Hide all images
     images.forEach(img => img.classList.remove('active'));
@@ -239,28 +278,6 @@ function showProjectImage(projectNum, imageIndex) {
     if (dots[imageIndex]) {
         dots[imageIndex].classList.add('active');
     }
-}
-
-function nextProjectImage(projectNum) {
-    const projectSlide = document.querySelector(`.project-slide[data-project="${projectNum}"]`);
-    if (!projectSlide) return;
-    
-    const images = projectSlide.querySelectorAll('.project-image');
-    let currentIndex = currentProjectImages[projectNum];
-    currentIndex = (currentIndex + 1) % images.length;
-    
-    showProjectImage(projectNum, currentIndex);
-}
-
-function previousProjectImage(projectNum) {
-    const projectSlide = document.querySelector(`.project-slide[data-project="${projectNum}"]`);
-    if (!projectSlide) return;
-    
-    const images = projectSlide.querySelectorAll('.project-image');
-    let currentIndex = currentProjectImages[projectNum];
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    
-    showProjectImage(projectNum, currentIndex);
 }
 
 // Navbar click handling
