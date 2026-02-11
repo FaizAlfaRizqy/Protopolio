@@ -452,14 +452,25 @@ body::before {
     align-items: center;
 }
 
+.section-title-wrapper {
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
 .section-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
     font-size: 64px;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 80px;
-    margin-top: -20px;
+}
+
+.section-underline {
+    display: block;
+    margin: -40px auto 0;
+    max-width: 150px;
+    margin-right: 100px;
 }
 
 .projects-content {
@@ -477,8 +488,8 @@ body::before {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: #666666;
+    width: 0.5px;
+    background: #FFFFFF;
     transform: translateX(-50%);
 }
 
@@ -563,15 +574,15 @@ body::before {
 
 .indicator-line {
     width: 500px;
-    height: 2px;
-    background: #666666;
+    height: 0.5px;
+    background: #FFFFFF;
     margin-right: 15px;
 }
 
 .image-dot {
     width: 12px;
     height: 12px;
-    background: #ffffff;
+    background: #666666;
     border-radius: 0;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -727,6 +738,10 @@ body::before {
     .section-title {
         font-size: 48px;
     }
+    
+    .section-title-wrapper {
+        margin-bottom: 60px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -736,7 +751,14 @@ body::before {
     
     .section-title {
         font-size: 36px;
+    }
+    
+    .section-title-wrapper {
         margin-bottom: 50px;
+    }
+    
+    .section-underline {
+        max-width: 150px;
     }
     
     .project-preview {
