@@ -422,7 +422,7 @@ body::before {
 .section-title-wrapper {
     text-align: center;
     margin-top: -20px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .section-title {
@@ -464,6 +464,7 @@ body::before {
 .project-slider {
     flex: 1;
     max-width: 500px;
+    margin-top: 20px;
 }
 
 .project-slide-wrapper {
@@ -615,7 +616,7 @@ body::before {
     flex-direction: column;
     gap: 10px;
     max-width: 500px;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .project-item {
@@ -623,8 +624,8 @@ body::before {
     font-size: 18px;
     color: #ffffff;
     padding: 15px 20px;
-    padding-left: 45px;
-    background: rgba(57, 57, 57, 0.8);
+    padding-left: 30px;
+    background: rgba(57, 57, 57, 0.6);
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -635,7 +636,7 @@ body::before {
 }
 
 .project-item:nth-child(even) {
-    background: rgba(22, 22, 22, 0.8);
+    background: rgba(22, 22, 22, 0.6);
 }
 
 .project-item::before {
@@ -659,17 +660,11 @@ body::before {
 }
 
 .project-item.active {
-    background: rgba(45, 45, 45, 0.9);
     color: #ffffff;
 }
 
 .project-item.active::before {
     background: #FF3333;
-}
-
-.project-item:nth-child(even):hover,
-.project-item:nth-child(even).active {
-    background: rgba(50, 50, 50, 0.9);
 }
 
 .project-bar {
