@@ -103,14 +103,19 @@
                     <div class="project-slide-wrapper">
                         <div class="project-slide active" data-project="1">
                             <div class="project-preview">
-                                <div class="project-preview-placeholder">Slider</div>
+                                <div class="project-images-slider">
+                                    <img src="img/projects/uav-1.jpg" alt="UAV Project 1" class="project-image active">
+                                    <img src="img/projects/uav-2.jpg" alt="UAV Project 2" class="project-image">
+                                    <img src="img/projects/uav-3.jpg" alt="UAV Project 3" class="project-image">
+                                </div>
+                                <button class="slider-nav prev" onclick="previousProjectImage(1)">‹</button>
+                                <button class="slider-nav next" onclick="nextProjectImage(1)">›</button>
                             </div>
                             <h3 class="project-title">[UAV System Eng] Post Flight UAV Diagnostic Analyzer</h3>
-                            <div class="project-indicators">
-                                <span class="project-dot active"></span>
-                                <span class="project-dot"></span>
-                                <span class="project-dot"></span>
-                                <span class="project-dot"></span>
+                            <div class="project-image-indicators">
+                                <span class="image-dot active" onclick="showProjectImage(1, 0)"></span>
+                                <span class="image-dot" onclick="showProjectImage(1, 1)"></span>
+                                <span class="image-dot" onclick="showProjectImage(1, 2)"></span>
                             </div>
                             <div class="project-tags">
                                 <span class="tag">Python</span>
@@ -122,14 +127,19 @@
 
                         <div class="project-slide" data-project="2">
                             <div class="project-preview">
-                                <div class="project-preview-placeholder">Project 2</div>
+                                <div class="project-images-slider">
+                                    <img src="img/projects/hollow-1.jpg" alt="Hollow Knight 1" class="project-image active">
+                                    <img src="img/projects/hollow-2.jpg" alt="Hollow Knight 2" class="project-image">
+                                    <img src="img/projects/hollow-3.jpg" alt="Hollow Knight 3" class="project-image">
+                                </div>
+                                <button class="slider-nav prev" onclick="previousProjectImage(2)">‹</button>
+                                <button class="slider-nav next" onclick="nextProjectImage(2)">›</button>
                             </div>
                             <h3 class="project-title">[Frontend] Hollow Knight Fanmade Web</h3>
-                            <div class="project-indicators">
-                                <span class="project-dot"></span>
-                                <span class="project-dot active"></span>
-                                <span class="project-dot"></span>
-                                <span class="project-dot"></span>
+                            <div class="project-image-indicators">
+                                <span class="image-dot active" onclick="showProjectImage(2, 0)"></span>
+                                <span class="image-dot" onclick="showProjectImage(2, 1)"></span>
+                                <span class="image-dot" onclick="showProjectImage(2, 2)"></span>
                             </div>
                             <div class="project-tags">
                                 <span class="tag">HTML</span>
@@ -140,14 +150,19 @@
 
                         <div class="project-slide" data-project="3">
                             <div class="project-preview">
-                                <div class="project-preview-placeholder">Project 3</div>
+                                <div class="project-images-slider">
+                                    <img src="img/projects/roomify-1.jpg" alt="Roomify 1" class="project-image active">
+                                    <img src="img/projects/roomify-2.jpg" alt="Roomify 2" class="project-image">
+                                    <img src="img/projects/roomify-3.jpg" alt="Roomify 3" class="project-image">
+                                </div>
+                                <button class="slider-nav prev" onclick="previousProjectImage(3)">‹</button>
+                                <button class="slider-nav next" onclick="nextProjectImage(3)">›</button>
                             </div>
                             <h3 class="project-title">[UI/UX] Roomify : System Informasi Kos Berbasis Web</h3>
-                            <div class="project-indicators">
-                                <span class="project-dot"></span>
-                                <span class="project-dot"></span>
-                                <span class="project-dot active"></span>
-                                <span class="project-dot"></span>
+                            <div class="project-image-indicators">
+                                <span class="image-dot active" onclick="showProjectImage(3, 0)"></span>
+                                <span class="image-dot" onclick="showProjectImage(3, 1)"></span>
+                                <span class="image-dot" onclick="showProjectImage(3, 2)"></span>
                             </div>
                             <div class="project-tags">
                                 <span class="tag">Figma</span>
@@ -158,14 +173,19 @@
 
                         <div class="project-slide" data-project="4">
                             <div class="project-preview">
-                                <div class="project-preview-placeholder">Project 4</div>
+                                <div class="project-images-slider">
+                                    <img src="img/projects/cat-1.jpg" alt="Little Cat 1" class="project-image active">
+                                    <img src="img/projects/cat-2.jpg" alt="Little Cat 2" class="project-image">
+                                    <img src="img/projects/cat-3.jpg" alt="Little Cat 3" class="project-image">
+                                </div>
+                                <button class="slider-nav prev" onclick="previousProjectImage(4)">‹</button>
+                                <button class="slider-nav next" onclick="nextProjectImage(4)">›</button>
                             </div>
                             <h3 class="project-title">[Game Dev] Little Cat Time Adventure</h3>
-                            <div class="project-indicators">
-                                <span class="project-dot"></span>
-                                <span class="project-dot"></span>
-                                <span class="project-dot"></span>
-                                <span class="project-dot active"></span>
+                            <div class="project-image-indicators">
+                                <span class="image-dot active" onclick="showProjectImage(4, 0)"></span>
+                                <span class="image-dot" onclick="showProjectImage(4, 1)"></span>
+                                <span class="image-dot" onclick="showProjectImage(4, 2)"></span>
                             </div>
                             <div class="project-tags">
                                 <span class="tag">Unity</span>
@@ -178,10 +198,6 @@
 
                 <!-- Project List -->
                 <div class="project-list">
-                    <div class="project-item" data-project="1">
-                        <span class="project-bar"></span>
-                        <span class="project-name">[UAV System Eng] Post Flight UAV Diagnostic Analyzer</span>
-                    </div>
                     <div class="project-item" data-project="2">
                         <span class="project-name">[Frontend] Hollow Knight Fanmade Web</span>
                     </div>
@@ -191,7 +207,7 @@
                     <div class="project-item" data-project="4">
                         <span class="project-name">[Frontend] Web Undangan Pernikahan</span>
                     </div>
-                    <div class="project-item active" data-project="1">
+                    <div class="project-item" data-project="1">
                         <span class="project-bar"></span>
                         <span class="project-name">[UAV System Eng] Post Flight UAV Diagnostic Analyzer</span>
                     </div>
