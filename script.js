@@ -18,12 +18,12 @@ let currentExperience = 1;
 const totalExperiences = 5;
 const experienceTitles = [
     '[Staff Acara] Soedirman Technophoria',
-    '[Tim Lomba] Kompetisi Robot Terbang Indonesia',
-    '[Volunteer] Workshop Robotics for Kids',
-    '[Internship] PT. Tech Solutions Indonesia',
-    '[Project Leader] University Innovation Program'
+    '[Staff Acara] Ramadhan Far From Home',
+    '[Staff Kaderisasi] SALMAN MM TEKNIK 1446H',
+    '[Staff System KRTI RP] Soedirman Robotic Team',
+    '[Staff System KRTI RP] KRTI 2025'
 ];
-const experienceYears = ['2024', '2023', '2023', '2022', '2021'];
+const experienceYears = ['2024', '2025', '2025', '2025', '2025'];
 const experienceNumbers = ['01', '02', '03', '04', '05'];
 
 // Initialize
