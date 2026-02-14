@@ -8,10 +8,23 @@ const totalSlides = 3;
 let autoSlideInterval;
 
 // Project slider functionality
-let currentProject = 1;
-const totalProjects = 4;
+let currentProject = 2;
+const totalProjects = 5;
 let currentProjectImages = {}; // Track current image index for each project
 let projectImageIntervals = {}; // Auto-slide intervals for project images
+
+// Experience slider functionality
+let currentExperience = 1;
+const totalExperiences = 5;
+const experienceTitles = [
+    '[Staff Acara] Soedirman Technophoria',
+    '[Tim Lomba] Kompetisi Robot Terbang Indonesia',
+    '[Volunteer] Workshop Robotics for Kids',
+    '[Internship] PT. Tech Solutions Indonesia',
+    '[Project Leader] University Innovation Program'
+];
+const experienceYears = ['2024', '2023', '2023', '2022', '2021'];
+const experienceNumbers = ['01', '02', '03', '04', '05'];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,11 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
         currentProjectImages[i] = 0; // Start at first image for each project
     }
     
-    // Show first project by default
-    showProject(1);
+    // Show first project by default (Hollow Knight)
+    showProject(2);
     
-    // Start auto-slide for project 1
-    startProjectImageAutoSlide(1);
+    // Start auto-slide for project 2
+    startProjectImageAutoSlide(2);
+    
+    // Initialize experiences
+    showExperience(1);
     
     const contentWrapper = document.querySelector('.content-wrapper');
     const videoBackground = document.querySelector('.video-background');
@@ -343,4 +359,45 @@ if (slider) {
             }
         }
     }
+}
+
+// Experience Slider Functions
+function showExperience(n) {
+    if (n < 1) n = totalExperiences;
+    if (n > totalExperiences) n = 1;
+    
+    currentExperience = n;
+    
+    const slides = document.querySelectorAll('.experience-slide');
+    const dots = document.querySelectorAll('.experience-dot');
+    const titleElement = document.querySelector('.experience-title');
+    const yearElement = document.querySelector('.experience-year');
+    const numberElement = document.querySelector('.experience-number');
+    
+    // Hide all slides
+    slides.forEach(slide => slide.classList.remove('active'));
+    
+    // Show current slide
+    if (slides[n - 1]) {
+        slides[n - 1].classList.add('active');
+    }
+    
+    // Update dots
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[n - 1]) {
+        dots[n - 1].classList.add('active');
+    }
+    
+    // Update title, year, and number
+    if (titleElement) titleElement.textContent = experienceTitles[n - 1];
+    if (yearElement) yearElement.textContent = experienceYears[n - 1];
+    if (numberElement) numberElement.textContent = experienceNumbers[n - 1];
+}
+
+function nextExperience() {
+    showExperience(currentExperience + 1);
+}
+
+function previousExperience() {
+    showExperience(currentExperience - 1);
 }

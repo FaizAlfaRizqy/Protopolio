@@ -208,6 +208,33 @@
                                 <span class="tag">Game Design</span>
                             </div>
                         </div>
+
+                        <div class="project-slide" data-project="5">
+                            <h3 class="project-title">[Frontend] Web Undangan Pernikahan</h3>
+                            <div class="project-preview">
+                                <div class="project-images-slider">
+                                    <img src="img/projects/wedding-1.jpg" alt="Wedding Web 1" class="project-image active">
+                                    <img src="img/projects/wedding-2.jpg" alt="Wedding Web 2" class="project-image">
+                                    <img src="img/projects/wedding-3.jpg" alt="Wedding Web 3" class="project-image">
+                                    <img src="img/projects/wedding-1.jpg" alt="Wedding Web 4" class="project-image">
+                                </div>
+                                <button class="slider-nav prev">‹</button>
+                                <button class="slider-nav next">›</button>
+                            </div>
+                            <div class="project-image-indicators">
+                                <div class="indicator-line"></div>
+                                <span class="image-dot active" onclick="showProjectImage(5, 0)"></span>
+                                <span class="image-dot" onclick="showProjectImage(5, 1)"></span>
+                                <span class="image-dot" onclick="showProjectImage(5, 2)"></span>
+                                <span class="image-dot" onclick="showProjectImage(5, 3)"></span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive Design</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -220,14 +247,14 @@
                         <span class="project-name">[UI/UX] Roomify : System Informasi Kos Berbasis Web</span>
                     </div>
                     <div class="project-item" data-project="4">
+                        <span class="project-name">[Game Dev] Little Cat Time Adventure</span>
+                    </div>
+                    <div class="project-item" data-project="5">
                         <span class="project-name">[Frontend] Web Undangan Pernikahan</span>
                     </div>
                     <div class="project-item" data-project="1">
                         <span class="project-bar"></span>
                         <span class="project-name">[UAV System Eng] Post Flight UAV Diagnostic Analyzer</span>
-                    </div>
-                    <div class="project-item" data-project="5">
-                        <span class="project-name">[Game Dev] Little Cat Time Adventure</span>
                     </div>
                 </div>
             </div>
@@ -235,9 +262,63 @@
 
             <!-- Experiences Section -->
             <section class="experiences-section page-section" id="experiences" data-page="3">
-                <div class="section-title">Experiences</div>
+                <div class="experience-title-wrapper">
+                    <div class="experience-section-title">Experience</div>
+                </div>
+                
                 <div class="experiences-content">
-                    <p style="font-family: 'Abel', sans-serif; font-size: 24px; color: #999;">Content coming soon...</p>
+                    <!-- Experience Slider -->
+                    <div class="experience-slider">
+                        <!-- Experience Number (Left) -->
+                        <div class="experience-number">01</div>
+                        
+                        <!-- Experience Frame -->
+                        <div class="experience-frame">
+                            <img src="img/selaider-vrame.png" alt="" class="frame-image">
+                            
+                            <div class="experience-slides">
+                                <div class="experience-slide active" data-experience="1">
+                                    <img src="img/experiences/exp-1.png" alt="Soedirman Technophoria" class="experience-image">
+                                </div>
+                                <div class="experience-slide" data-experience="2">
+                                    <img src="img/experiences/exp-2.jpg" alt="Experience 2" class="experience-image">
+                                </div>
+                                <div class="experience-slide" data-experience="3">
+                                    <img src="img/experiences/exp-3.jpg" alt="Experience 3" class="experience-image">
+                                </div>
+                                <div class="experience-slide" data-experience="4">
+                                    <img src="img/experiences/exp-4.jpg" alt="Experience 4" class="experience-image">
+                                </div>
+                                <div class="experience-slide" data-experience="5">
+                                    <img src="img/experiences/exp-5.jpg" alt="Experience 5" class="experience-image">
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button class="experience-nav prev" onclick="previousExperience()">
+                                <img src="img/left.png" alt="Previous">
+                            </button>
+                            <button class="experience-nav next" onclick="nextExperience()">
+                                <img src="img/right.png" alt="Next">
+                            </button>
+                        </div>
+                        
+                        <!-- Year (Right) -->
+                        <div class="experience-year">2024</div>
+                    </div>
+                    
+                    <!-- Experience Title -->
+                    <div class="experience-title">[Staff Acara] Soedirman Technophoria</div>
+                    
+                    <!-- Experience Indicators -->
+                    <div class="experience-indicators">
+                        <div class="experience-indicator-line"></div>
+                        <span class="experience-dot active" onclick="showExperience(1)"></span>
+                        <span class="experience-dot" onclick="showExperience(2)"></span>
+                        <span class="experience-dot" onclick="showExperience(3)"></span>
+                        <span class="experience-dot" onclick="showExperience(4)"></span>
+                        <span class="experience-dot" onclick="showExperience(5)"></span>
+                    </div>
                 </div>
             </section>
 
