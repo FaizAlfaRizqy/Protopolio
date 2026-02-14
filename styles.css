@@ -415,6 +415,7 @@ body::before {
     margin-top: -20px;
     margin-bottom: -80px;
     transform: translateX(-100px);
+    position: relative;
 }
 
 .experience-section-title {
@@ -423,6 +424,16 @@ body::before {
     font-size: 64px;
     color: #ffffff;
     text-align: center;
+}
+
+.experience-underline {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    max-width: 280px;
+    margin-right: 100px;
+    z-index: 1;
 }
 
 .experience-slider {
@@ -686,15 +697,28 @@ body::before {
 
 .contact-dots-background {
     position: absolute;
-    left: 50px;
-    bottom: 50px;
+    left: 5px;
+    bottom: 40px;
     width: 300px;
     height: 300px;
-    background: url('img/dots.png') no-repeat center;
+    background: url('img/dot-squwer.png') no-repeat center;
     background-size: contain;
-    opacity: 0.7;
+    opacity: 1;
     pointer-events: none;
-    z-index: 0;
+    z-index: 9;
+}
+
+.contact-bottom-right-decoration {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    width: 650px;
+    height: 250px;
+    background: url('img/gaeis-meah.png') no-repeat center;
+    background-size: contain;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 9;
 }
 
 .contact-wrapper {
@@ -707,10 +731,8 @@ body::before {
     z-index: 1;
 }
 
-.contact-title-box {
-    background: rgba(80, 80, 80, 0.5);
-    padding: 20px 80px;
-    border-radius: 10px;
+.contact-wrapper > div:first-of-type {
+    position: relative;
 }
 
 .contact-title {
@@ -720,6 +742,17 @@ body::before {
     color: #ffffff;
     margin: 0;
     text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-underline {
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    max-width: 300px;
+    z-index: 1;
 }
 
 .contact-content {
@@ -732,12 +765,12 @@ body::before {
 
 .contact-form {
     flex: 1;
-    max-width: 900px;
+    max-width: 1100px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     background: rgba(60, 60, 60, 0.7);
-    padding: 40px 100px;
+    padding: 50px 120px;
     border-radius: 30px;
 }
 
@@ -801,8 +834,23 @@ body::before {
 .social-icons {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 5px;
     margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.social-icons-background {
+    position: absolute;
+    right: 20px;
+    top: 375px;
+    width: 300px;
+    height: 300px;
+    background: url('img/dot-squwer.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .social-icon {
@@ -843,8 +891,22 @@ body::before {
         margin-top: 0;
     }
     
+    .social-icons-background {
+        right: 50%;
+        bottom: 0;
+        transform: translateX(50%);
+        width: 250px;
+        height: 250px;
+        opacity: 0.4;
+    }
+    
     .contact-title {
         font-size: 48px;
+    }
+    
+    .contact-bottom-right-decoration {
+        width: 150px;
+        height: 150px;
     }
 }
 
@@ -879,6 +941,17 @@ body::before {
         height: 200px;
         left: 20px;
         bottom: 20px;
+    }
+    
+    .contact-bottom-right-decoration {
+        width: 120px;
+        height: 120px;
+        right: 10px;
+        bottom: 20px;
+    }
+    
+    .social-icons-background {
+        display: none;
     }
 }
 
